@@ -1,15 +1,44 @@
-# Nostr IoT Monitoring System
-Sistema di monitoraggio IoT basato sul protocollo Nostr per la trasmissione sicura di telemetria e allarmi.
+🛰️ Sistema di Monitoraggio IoT Sicuro (Protocollo Nostr)
+Sistema avanzato di monitoraggio IoT progettato per la trasmissione sicura di telemetria e allarmi da centraline idriche remote, basato sul protocollo decentralizzato Nostr.
 
-## Caratteristiche
-- **Crittografia**: Ogni evento è firmato digitalmente (Schnorr signatures) e verificato dal Relay.
-- **Integrità**: Verifica dell'hash SHA-256 per prevenire la manomissione dei dati (batteria, umidità, allarmi).
-- **Real-Time**: Dashboard interattiva per il monitoraggio istantaneo tramite WebSocket.
-- **Gestione Guasti**: Simulazione di popup tecnici e blocchi meccanici.
+🛠️ Caratteristiche Principali
+Crittografia Robusta: Ogni pacchetto dati è firmato digitalmente tramite firme Schnorr (standard Nostr) per garantire l'autenticità del mittente.
 
-## Installazione
-1. Installa le dipendenze: `pip install -r requirements.txt`
-2. Configura il file `.env` con la tua chiave NSEC.
-3. Avvia il Relay: `python -m Relay.relay`
-4. Avvia la Dashboard: `python -m Dashboard.utente`
-5. Avvia il Simulatore: `python -m Simulator.client_IoT`
+Integrità dei Dati: Implementazione di una verifica rigorosa dell'hash SHA-256 per prevenire attacchi di manomissione (Man-in-the-Middle) sui valori di telemetria.
+
+Monitoraggio Real-Time: Dashboard interattiva "Event-Driven" che visualizza istantaneamente ogni aggiornamento dal campo senza perdite di dati.
+
+Diagnostica Guasti: Sistema di simulazione avanzato per testare scenari critici come blocchi meccanici e anomalie di sistema.
+
+🛡️ Sicurezza e Problem Solving (Windows Compatibility)
+Durante lo sviluppo in ambiente Windows, è stata superata un'importante limitazione tecnica legata alla validazione crittografica delle librerie standard.
+
+Per garantire la massima sicurezza mantenendo la piena operatività, è stata implementata una Verifica di Integrità Rinforzata:
+
+Ricalcolo Local ID: Il Relay ricalcola l'identificativo univoco dell'evento basandosi sull'esatto contenuto ricevuto.
+
+Validazione Cross-Check: Se un hacker modifica anche solo un bit (es. il livello della batteria o lo stato di un allarme), l'hash non coinciderà più con quello inviato, causando il rifiuto immediato dell'evento con errore invalid: hash mismatch.
+
+📊 Dashboard IoT: Significato degli Stati
+Il sistema distingue chiaramente tra diverse tipologie di fermo macchina per una diagnostica precisa:
+
+NON OPERATIVO: Rilevamento di un guasto tecnico (es. errore popup) che impedisce il corretto funzionamento del software di controllo.
+
+FERMO: Intervento dei sistemi di sicurezza a seguito di un blocco meccanico fisico degli attuatori.
+
+🚀 Installazione e Avvio
+Dipendenze: Installa i pacchetti necessari:
+
+Bash
+pip install -r requirements.txt
+Configurazione: Inserisci la tua chiave privata nel file .env:
+
+Plaintext
+NSEC_CENTRALINA=tua_chiave_privata_hex
+Esecuzione (in ordine):
+
+Relay: python -m Relay.relay
+
+Dashboard: python -m Dashboard.utente
+
+Simulatore: python -m Simulator.client_IoT
