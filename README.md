@@ -1,10 +1,10 @@
-# 🛰️ Sistema di Monitoraggio IoT Sicuro (Protocollo Nostr)
+# Sistema di Monitoraggio IoT Sicuro (Protocollo Nostr)
 
 Sistema avanzato di monitoraggio IoT progettato per la trasmissione sicura di telemetria e allarmi da centraline idriche remote, basato sul protocollo decentralizzato **Nostr**.
 
 ---
 
-## 🛠️ Caratteristiche Principali
+##  Caratteristiche Principali
 
 * **Crittografia Robusta**: Ogni pacchetto dati è firmato digitalmente tramite firme **Schnorr** (standard Nostr) per garantire l'autenticità del mittente.
 * **Integrità dei Dati**: Implementazione di una verifica rigorosa dell'**hash SHA-256** per prevenire attacchi di manomissione (*Man-in-the-Middle*) sui valori di telemetria.
@@ -13,7 +13,7 @@ Sistema avanzato di monitoraggio IoT progettato per la trasmissione sicura di te
 
 ---
 
-## 🛡️ Sicurezza e Problem Solving (Windows Compatibility)
+##  Sicurezza e Problem Solving (Windows Compatibility)
 
 Durante lo sviluppo in ambiente Windows, è stata superata un'importante limitazione tecnica legata alla validazione crittografica delle librerie standard. 
 
@@ -23,7 +23,7 @@ Per garantire la massima sicurezza mantenendo la piena operatività, è stata im
 
 ---
 
-## 📊 Dashboard IoT: Significato degli Stati
+##  Dashboard IoT: Significato degli Stati
 
 Il sistema distingue chiaramente tra diverse tipologie di fermo macchina:
 * **NON OPERATIVO**: Rilevamento di un **guasto tecnico** (es. errore popup) che impedisce il corretto funzionamento del software di controllo.
@@ -31,7 +31,7 @@ Il sistema distingue chiaramente tra diverse tipologie di fermo macchina:
 
 ---
 
-## 🚀 Installazione e Avvio
+##  Installazione e Avvio
 
 1.  **Dipendenze**: Installa i pacchetti necessari:
     ```bash
